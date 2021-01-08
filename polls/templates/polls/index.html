@@ -1,0 +1,46 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div id="banner">
+    <span id="icon">
+        <img id="iconimg" src="{% static 'polls/images/icon.png' %}">
+    </span>
+    <span id="title">
+        POLLS.COM
+    </span>
+</div>
+
+<div id="pollsCells">
+    <div id="currentPolls" class="pollList">
+        <p class="pollListTitle"> Current Polls </p>
+        <div class="separator"></div>
+        <div>
+            {% if question_list.0 %}
+                {% for question in question_list.0 %}
+                    <div class="pointer currentPollItem" onclick="location.href='{% url 'polls:detail' question.id%}';">
+                        <a class="pollLink">{{ question.question_text }}</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="pastPolls" class="pollList">
+        <p class="pollListTitle"> Past Polls </p>
+        <div class="separator"></div>
+        <div>
+            {% if question_list.1 %}
+                {% for question in question_list.1 %}
+                    <div class="pointer pastPollItem" onclick="location.href='{% url 'polls:results' question.id%}';">
+                        <a class="pollLink">{{ question.question_text }}</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>

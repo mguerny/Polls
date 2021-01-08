@@ -1,0 +1,34 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div id="banner">
+    <span id="icon">
+        <img id="iconimg" src="{% static 'polls/images/icon.png' %}">
+    </span>
+    <span id="title">
+        POLLS.COM
+    </span>
+</div>
+
+{% if error_message %}
+<p class="error"><strong>{{ error_message }}</strong></p>
+{% endif %}
+<div id="pollsCells">
+    <div class="pollList">
+        <p class="pollListTitle"> {{ question.question_text }} </p>
+        <div class="separator"></div>
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+            {% csrf_token %}
+            {% for choice in question.choice_set.all %}
+                <div class="radio">
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                </div>
+            {% endfor %}
+            <input class="pointer" type="submit" value="Vote">
+        </form>
+        <a class="return pointer" onclick="location.href='{% url 'polls:results' question.id%}';">Results</a>
+    </div>
+</div>
+

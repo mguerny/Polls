@@ -1,0 +1,142 @@
+body {
+    margin:0;
+    height: 100%;
+    width: 100%;
+    background: #202225 url("images/bigIcon.png") no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.error{
+    color: red;
+}
+
+/*====================================================================================================================*/
+/* BANNER */
+/*====================================================================================================================*/
+
+#banner {
+    background: url("images/background.png") no-repeat;
+    height: 100px;
+    width: 100%;
+    display: table;
+}
+
+#icon {
+    height: 70px;
+    width: 70px;
+    padding-left: 15px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#iconimg {
+    height: 100%;
+    width: 100%;
+}
+
+#title {
+    font-size: 70px;
+    padding-left: 15px;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*====================================================================================================================*/
+/* INDEX */
+/*====================================================================================================================*/
+
+
+#pollsCells{
+    text-align: center;
+    width: 100%;
+    display: flex;
+}
+
+.pollList{
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px;
+    flex-grow: 100;
+    color: lightgray;
+}
+
+#currentPolls{
+
+}
+
+#pastPolls{
+
+}
+
+.pollListTitle{
+    text-align: center;
+}
+
+.separator{
+    border-bottom: 1px solid gray;
+    width: 90%;
+    height: 0;
+    margin: auto;
+}
+
+.currentPollItem{
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: grey;
+    color: black;
+    margin: 25px auto;
+    width: 30%;
+    padding: 10px;
+}
+
+.pastPollItem{
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: grey;
+    color: black;
+    margin: 25px auto;
+    width: 80%;
+    padding: 10px;
+}
+
+.pollLink{
+    text-decoration: none;
+    color: black;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+/*====================================================================================================================*/
+/* DETAIL */
+/*====================================================================================================================*/
+
+.radio{
+    margin: 10px;
+}
+
+#container{
+    color: lightGray;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#pie-chart{
+}
+
+.return{
+    border: 1px solid grey;
+    border-radius: 10px;
+    color: lightGray;
+    text-decoration: none;
+    width: max-content;
+    display: block;
+    text-align: center;
+    margin: 20px auto 20px;
+    padding: 5px;
+}

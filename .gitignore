@@ -1,0 +1,10 @@
+
+polls/__pycache__/
+
+mysite/__pycache__/
+
+.idea/
+
+polls/migrations/__pycache__/
+
+venv/

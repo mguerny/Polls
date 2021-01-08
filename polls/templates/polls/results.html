@@ -1,0 +1,51 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div id="banner">
+    <span id="icon">
+        <img id="iconimg" src="{% static 'polls/images/icon.png' %}">
+    </span>
+    <span id="title">
+        POLLS.COM
+    </span>
+</div>
+
+<div id="container">
+    <canvas id="pie-chart"></canvas>
+</div>
+
+<a class="return" href="{% url 'polls:index' %}">Return to poll list ?</a>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+var config = {
+    type: 'pie',
+    data: {
+        datasets: [{
+            data: {{ data|safe }},
+            backgroundColor: [
+            '#003f5c', '#bc5090', '#ffa600', '#58508d', '#ff6361', "#52D726", "#FFEC00", "#FF0000", "#007ED6", "#7CDDDD"
+            ],
+            label: 'Votes'
+        }],
+        labels: {{ labels|safe }}
+    },
+    options: {
+        responsive: true,
+        legend: {
+            labels: {
+                fontColor: 'lightgray',
+                fontSize: 20
+            }
+        }
+    }
+};
+
+window.onload = function() {
+  var ctx = document.getElementById('pie-chart').getContext('2d');
+  window.myPie = new Chart(ctx, config);
+};
+
+</script>
